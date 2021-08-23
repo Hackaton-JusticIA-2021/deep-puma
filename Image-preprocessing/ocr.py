@@ -1,27 +1,23 @@
 import os
-from PIL import Image
 import pytesseract as ocr
 import cv2 as cv
 import numpy as np
 import argparse
 from tqdm import tqdm
-import re
 
 # Definición de parámetros de ejecución #
 ap = argparse.ArgumentParser()
 ap.add_argument('-src', '--source', type=str, help='ruta a carpeta con imagenes a procesar')
 ap.add_argument('-img_out', '--image_out', type=str, help='ruta donde se almacenan las imagenes procesadas')
 ap.add_argument('-txt_out', '--text_out', type=str, help='ruta donde se almacenan los textos obtenidos por el OCR')
-ap.add_argument('-bin', '--binary', default=True, action='store_false',help='dermina si se usa imagen binaria o en escala de grises')
+ap.add_argument('-g', '--gray', default=True, action='store_false',help='dermina si se usa imagen binaria o en escala de grises')
 args = vars(ap.parse_args())
 
 # Lectura de parámetros de ejecución #
 images_path = args['source']
 processed_path = args['image_out']
 texts_path = args['text_out']
-bin_option = args['binary']
-
-print(bin_option)
+bin_option = args['gray']
 
 source = [f for f in os.listdir(images_path) if os.path.isfile(os.path.join(images_path, f))]
 print('\n[INFO] se encontraron {} imagenes para procesar.\n'.format(len(source)))
