@@ -12,9 +12,7 @@
 ## Descripción
 
 ## Cómo correr el código
-
-1)
-2)
-3)  
-
-## Notas
+A continunación se enlistan los notebooks en el orden en que deben ser ejecutados
+1) Rotación.ipynb
+2) OCR_bert.ipynb
+3) Outputs.ipynb
